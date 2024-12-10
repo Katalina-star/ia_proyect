@@ -1,5 +1,4 @@
 import torch
-import torch
 
 def evaluate_model(model, test_loader, device="cpu"):
     model.to(device)

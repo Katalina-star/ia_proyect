@@ -3,7 +3,7 @@ import numpy as np
 import torchvision
 import torch
 from dataset_loader import extract_and_load_data
-from model_definition import CNN  # Usamos la clase que implementa ResNet18
+from model_definition import ResNet18  # Cambiar CNN por ResNet18
 from train import train_model
 from evaluate import evaluate_model
 
@@ -36,16 +36,16 @@ else:
 
     # Definir el modelo con el número de clases
     num_classes = len(classes)
-    model = CNN(num_classes)  # Usar la clase que implementa ResNet18
+    model = ResNet18(num_classes)  # Usamos la clase ResNet18
 
     # Entrenar el modelo
     print("\nIniciando entrenamiento...\n")
-    train_model(model, train_loader, epochs=50, lr=0.0001, device="cpu")
+    train_model(model, train_loader, epochs=10, lr=0.0001, device="cpu")
 
     # Evaluar el modelo en el conjunto de prueba
     print("\nEvaluando el modelo...\n")
     evaluate_model(model, test_loader, device="cpu")
 
     # Guardar el modelo entrenado
-    torch.save(model.state_dict(), "animal_classifier.pth")
-    print("\nModelo guardado como 'animal_classifier.pth'.")
+    torch.save(model.state_dict(), "animal_classifier_resnet18.pth")
+    print("\nModelo guardado como 'animal_classifier_resnet18.pth'.")

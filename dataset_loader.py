@@ -13,9 +13,9 @@ def extract_and_load_data(zip_path="archive.zip", extract_path="animals", batch_
     
     # Transformaciones de las imágenes
     transform = transforms.Compose([
-        transforms.Resize((64, 64)),  # Redimensionar imágenes
-        transforms.ToTensor(),       # Convertir a tensores
-        transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])  # Normalizar
+        transforms.Resize((224, 224)),  # ResNet18 espera entradas de 224x224
+        transforms.ToTensor(),          # Convertir a tensores
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])  # Normalización para ResNet18
     ])
     
     # Cargar el dataset

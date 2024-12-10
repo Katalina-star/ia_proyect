@@ -2,7 +2,7 @@ import torch
 import torch.optim as optim
 from torch import nn
 
-def train_model(model, train_loader, epochs=10, lr=0.001, device="cpu"):
+def train_model(model, train_loader, epochs=10, lr=0.0001, device="cpu"):
     model.to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
